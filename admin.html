@@ -491,11 +491,18 @@ function formProduto(p) {
     </div>
     <div class="form-group">
       <label>Categoria</label>
-      <select id="m-categoria">
-        <option value="Cerâmica Pintada" ${p?.categoria === 'Cerâmica Pintada' ? 'selected' : ''}>Cerâmica Pintada</option>
-        <option value="Papelaria" ${p?.categoria === 'Papelaria' ? 'selected' : ''}>Papelaria</option>
-        <option value="Artesanato" ${p?.categoria === 'Artesanato' ? 'selected' : ''}>Artesanato</option>
-      </select>
+      <input type="text" id="m-categoria" list="lista-categorias"
+        value="${p?.categoria || 'Cerâmica Pintada'}"
+        placeholder="Ex: Cerâmica Pintada, Camiseta, Papelaria..." />
+      <datalist id="lista-categorias">
+        <option value="Cerâmica Pintada">
+        <option value="Camiseta">
+        <option value="Papelaria">
+        <option value="Artesanato">
+        <option value="Acessório">
+        <option value="Decoração">
+      </datalist>
+      <small>Digite qualquer categoria ou escolha uma da lista acima.</small>
     </div>
     <div class="form-group">
       <label>Descrição</label>
