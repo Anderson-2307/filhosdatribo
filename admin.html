@@ -379,7 +379,7 @@ function renderProdutos(lista) {
     return `
     <div class="item-card">
       <div class="card-img">
-        ${img ? `<img src="${img}" alt="${p.nome}" onerror="this.parentElement.innerHTML='<div class=\\"no-img\\">🪴</div>'" />` : '<div class="no-img">🪴</div>'}
+        ${img ? `<img src="${img}" alt="${p.nome}" onerror="this.parentElement.innerHTML='<div class=\\"no-img\\">🪴</div>` : '<div class="no-img">🪴</div>'}
         <span class="card-badge">${p.categoria || 'Produto'}</span>
       </div>
       <div class="card-body">
