@@ -412,7 +412,7 @@ function renderCamisetas(lista) {
   grid.innerHTML = lista.map(c => `
     <div class="item-card">
       <div class="card-img">
-        ${c.imagem ? `<img src="${c.imagem}" alt="${c.nome}" onerror="this.parentElement.innerHTML='<div class=\\"no-img\\">👕</div>'" />` : '<div class="no-img">👕</div>'}
+        ${c.imagem ? `<img src="${c.imagem}" alt="${c.nome}" onerror="this.parentElement.innerHTML='<div class=\\"no-img\\">👕</div>` : '<div class="no-img">👕</div>'}
         <span class="card-badge">Camiseta</span>
       </div>
       <div class="card-body">
