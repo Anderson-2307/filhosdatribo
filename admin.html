@@ -714,7 +714,7 @@ async function carregarTribo() {
   grid.innerHTML = lista.map(t => `
     <div class="item-card">
       <div class="card-img">
-        ${t.imagem ? `<img src="${t.imagem}" alt="${t.legenda || ''}" onerror="this.parentElement.innerHTML='<div class=\\"no-img\\">💛</div>'">` : '<div class="no-img">💛</div>'}
+        ${t.imagem ? `<img src="${t.imagem}" alt="${t.legenda || ''}" onerror="this.parentElement.innerHTML='<div class=\\"no-img\\">💛</div>` : '<div class="no-img">💛</div>'}
         <span class="card-badge">Tribo</span>
       </div>
       <div class="card-body">
