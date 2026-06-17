@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./js/config.js"></script>
 
   <style>
     /* ============================================================
@@ -1449,17 +1451,19 @@
     }
 
     // ---- Bootstrap: buscar dados e renderizar ----
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
     async function init() {
       try {
         const [resProd, resCam, resCfg] = await Promise.all([
-          fetch('./_data/produtos.json'),
-          fetch('./_data/camisetas.json'),
-          fetch('./_data/config.json'),
+          sb.from('produtos').select('*').order('criado_em', { ascending: true }),
+          sb.from('camisetas').select('*').order('criado_em', { ascending: true }),
+          sb.from('config').select('*').eq('id', 1).single(),
         ]);
 
-        const { produtos }   = await resProd.json();
-        const { camisetas }  = await resCam.json();
-        const cfg            = await resCfg.json();
+        const produtos  = resProd.data  || [];
+        const camisetas = resCam.data   || [];
+        const cfg       = resCfg.data   || {};
 
         const waNumber = aplicarConfig(cfg);
         renderProdutos(produtos, waNumber);
@@ -1468,8 +1472,6 @@
         initReveal();
       } catch (err) {
         console.error('Erro ao carregar dados:', err);
-        const grid = document.getElementById('products-grid');
-        if (grid) grid.innerHTML = '<p style="color:var(--red);padding:1rem">Erro ao carregar produtos. Verifique os arquivos em _data/.</p>';
       }
     }
 
