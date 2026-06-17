@@ -1,0 +1,60 @@
+backend:
+  name: github
+  repo: Anderson-2307/filhosdatribo
+  branch: master
+
+media_folder: "imagens"
+public_folder: "/imagens"
+
+locale: "pt"
+
+collections:
+  - name: "produtos"
+    label: "Produtos (Muringas e Calendário)"
+    files:
+      - name: "lista_produtos"
+        label: "Lista de Produtos"
+        file: "_data/produtos.json"
+        fields:
+          - name: "produtos"
+            label: "Produtos"
+            widget: "list"
+            fields:
+              - { name: "id",        label: "ID (sem espaços, ex: muringa-verde)", widget: "string" }
+              - { name: "nome",      label: "Nome do Produto",  widget: "string" }
+              - { name: "categoria", label: "Categoria",        widget: "select",
+                  options: ["Cerâmica Pintada", "Papelaria", "Artesanato"] }
+              - { name: "descricao", label: "Descrição",        widget: "text" }
+              - { name: "destaque", label: "Peça em destaque?", widget: "boolean", default: false }
+              - name: "imagens"
+                label: "Fotos do Produto"
+                widget: "list"
+                field: { name: "src", label: "Foto", widget: "image" }
+
+  - name: "camisetas"
+    label: "Camisetas Personalizadas"
+    files:
+      - name: "lista_camisetas"
+        label: "Lista de Camisetas"
+        file: "_data/camisetas.json"
+        fields:
+          - name: "camisetas"
+            label: "Camisetas"
+            widget: "list"
+            fields:
+              - { name: "id",       label: "ID (sem espaços)", widget: "string" }
+              - { name: "nome",     label: "Nome / Modelo",    widget: "string" }
+              - { name: "descricao",label: "Descrição curta",  widget: "string" }
+              - { name: "imagem",   label: "Foto",             widget: "image" }
+
+  - name: "config_site"
+    label: "Configurações do Site"
+    files:
+      - name: "contato"
+        label: "Contato e Redes Sociais"
+        file: "_data/config.json"
+        fields:
+          - { name: "whatsapp",  label: "Número WhatsApp (com DDI, ex: 5571999999999)", widget: "string" }
+          - { name: "instagram", label: "@ do Instagram (sem @)",                        widget: "string" }
+          - { name: "email",     label: "E-mail de contato",                             widget: "string" }
+          - { name: "endereco",  label: "Endereço (rodapé)",                             widget: "string" }

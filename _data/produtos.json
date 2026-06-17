@@ -1,0 +1,36 @@
+{
+  "produtos": [
+    {
+      "id": "muringa-verde",
+      "nome": "Muringa Verde com Margaridas",
+      "categoria": "Cerâmica Pintada",
+      "descricao": "Filtro de barro artesanal pintado à mão com margaridas brancas sobre fundo verde menta. Acompanha copinho. Peça única, feita com amor.",
+      "destaque": false,
+      "imagens": ["/imagens/Muringa_Verde_1.jpeg", "/imagens/Muringa_Verde_2.jpeg"]
+    },
+    {
+      "id": "muringa-amarela",
+      "nome": "Muringa Amarela com Girassóis",
+      "categoria": "Cerâmica Pintada",
+      "descricao": "Filtro de barro pintado à mão com girassóis e detalhes em pontilhismo. Alegria e cor para sua cozinha. Peça artesanal exclusiva.",
+      "destaque": false,
+      "imagens": ["/imagens/Muringa_Amarelo_1.jpeg", "/imagens/Muringa_Amarelo_2.jpeg"]
+    },
+    {
+      "id": "muringa-azul",
+      "nome": "Moringa Azul \"Meu Pedacinho do Céu\"",
+      "categoria": "Cerâmica Pintada",
+      "descricao": "Garrafinha de barro pintada com céu estrelado em azul petróleo e estrelas douradas. Mensagem especial: \"meu pedacinho do céu\". Ideal para presente.",
+      "destaque": true,
+      "imagens": ["/imagens/Muringa_Azul_1.jpeg"]
+    },
+    {
+      "id": "calendario-2026",
+      "nome": "Calendário Passarada 2026",
+      "categoria": "Papelaria",
+      "descricao": "Calendário de mesa temático com ilustrações aquareladas de pássaros brasileiros. Um mês, uma espécie, uma frase inspiradora. Base de madeira inclusa.",
+      "destaque": false,
+      "imagens": ["/imagens/Calendario_1.jpeg", "/imagens/Calendario_2.jpeg"]
+    }
+  ]
+}

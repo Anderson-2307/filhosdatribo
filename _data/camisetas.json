@@ -1,0 +1,34 @@
+{
+  "camisetas": [
+    {
+      "id": "camiseta-filhos-da-tribo",
+      "nome": "Camiseta Filhos da Tribo",
+      "descricao": "Logo bordada, off-white — para orgulhar a tribo",
+      "imagem": "/imagens/Sarah_Jair.jpeg"
+    },
+    {
+      "id": "camiseta-sagrada-familia",
+      "nome": "Camiseta Sagrada Família",
+      "descricao": "Arte especial maternidade e natividade",
+      "imagem": "/imagens/Amanda_Raquel.jpeg"
+    },
+    {
+      "id": "camiseta-garoto",
+      "nome": "Camiseta Garoto",
+      "descricao": "Verde militar com onça tribal pintada",
+      "imagem": "/imagens/Flavia.jpeg"
+    },
+    {
+      "id": "camiseta-festa-junina",
+      "nome": "Camiseta Festa Junina",
+      "descricao": "\"Que Onda do Caramba\" — clima de arraial!",
+      "imagem": "/imagens/Joao_Alice.jpeg"
+    },
+    {
+      "id": "camiseta-coruja",
+      "nome": "Camiseta Coruja",
+      "descricao": "Coruja colorida em pontilhismo — arte viva",
+      "imagem": "/imagens/Darle_Jair.jpeg"
+    }
+  ]
+}

@@ -1096,99 +1096,8 @@
           <p class="section-subtitle">Peças artesanais únicas, pintadas à mão com tintas atóxicas e muita identidade cultural brasileira.</p>
         </div>
 
-        <div class="products-grid">
-
-          <!-- Muringa Verde -->
-          <article class="product-card">
-            <div class="product-img-wrap" id="muringa-verde-wrap">
-              <img
-                id="muringa-verde-img"
-                src="./imagens/Muringa_Verde_1.jpeg"
-                alt="Muringa Verde com Margaridas — filtro de barro pintado à mão com flores brancas sobre fundo verde menta"
-              />
-              <div class="img-dots">
-                <button class="img-dot active" onclick="switchImg('muringa-verde-img','./imagens/Muringa_Verde_1.jpeg', this)" aria-label="Imagem 1"></button>
-                <button class="img-dot" onclick="switchImg('muringa-verde-img','./imagens/Muringa_Verde_2.jpeg', this)" aria-label="Imagem 2"></button>
-              </div>
-            </div>
-            <div class="product-body">
-              <div class="product-badge"><span class="badge badge-ceramica">Cerâmica Pintada</span></div>
-              <h3 class="product-name">Muringa Verde com Margaridas</h3>
-              <p class="product-desc">Filtro de barro artesanal pintado à mão com margaridas brancas sobre fundo verde menta. Acompanha copinho. Peça única, feita com amor.</p>
-              <div class="product-footer">
-                <span class="product-tag">✨ Peça única</span>
-                <a href="https://wa.me/55XXXXXXXX?text=Olá!%20Tenho%20interesse%20na%20Muringa%20Verde%20com%20Margaridas." class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Muringa Amarela -->
-          <article class="product-card">
-            <div class="product-img-wrap">
-              <img
-                id="muringa-amarelo-img"
-                src="./imagens/Muringa_Amarelo_1.jpeg"
-                alt="Muringa Amarela com Girassóis — filtro de barro pintado à mão com girassóis e pontilhismo"
-              />
-              <div class="img-dots">
-                <button class="img-dot active" onclick="switchImg('muringa-amarelo-img','./imagens/Muringa_Amarelo_1.jpeg', this)" aria-label="Imagem 1"></button>
-                <button class="img-dot" onclick="switchImg('muringa-amarelo-img','./imagens/Muringa_Amarelo_2.jpeg', this)" aria-label="Imagem 2"></button>
-              </div>
-            </div>
-            <div class="product-body">
-              <div class="product-badge"><span class="badge badge-ceramica">Cerâmica Pintada</span></div>
-              <h3 class="product-name">Muringa Amarela com Girassóis</h3>
-              <p class="product-desc">Filtro de barro pintado à mão com girassóis e detalhes em pontilhismo. Alegria e cor para sua cozinha. Peça artesanal exclusiva.</p>
-              <div class="product-footer">
-                <span class="product-tag">✨ Peça única</span>
-                <a href="https://wa.me/55XXXXXXXX?text=Olá!%20Tenho%20interesse%20na%20Muringa%20Amarela%20com%20Girassóis." class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Muringa Azul -->
-          <article class="product-card">
-            <div class="product-img-wrap">
-              <img
-                src="./imagens/Muringa_Azul_1.jpeg"
-                alt="Moringa Azul Meu Pedacinho do Céu — garrafinha de barro com céu estrelado em azul petróleo e estrelas douradas"
-              />
-            </div>
-            <div class="product-body">
-              <div class="product-badge"><span class="badge badge-ceramica">Cerâmica Pintada</span></div>
-              <h3 class="product-name">Moringa Azul "Meu Pedacinho do Céu"</h3>
-              <p class="product-desc">Garrafinha de barro pintada com cÃ©u estrelado em azul petrÃ³leo e estrelas douradas. Mensagem especial: "meu pedacinho do cÃ©u". Ideal para presente.</p>
-              <div class="product-footer">
-                <span class="product-tag">Peça única</span>
-                <a href="https://wa.me/55XXXXXXXX?text=Olá!%20Tenho%20interesse%20na%20Moringa%20Azul." class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Calendário Passarada -->
-          <article class="product-card">
-            <div class="product-img-wrap">
-              <img
-                id="calendario-img"
-                src="./imagens/Calendario_1.jpeg"
-                alt="Calendário Passarada 2026 — calendário de mesa com ilustrações aquareladas de pássaros brasileiros"
-              />
-              <div class="img-dots">
-                <button class="img-dot active" onclick="switchImg('calendario-img','./imagens/Calendario_1.jpeg', this)" aria-label="Imagem 1"></button>
-                <button class="img-dot" onclick="switchImg('calendario-img','./imagens/Calendario_2.jpeg', this)" aria-label="Imagem 2"></button>
-              </div>
-            </div>
-            <div class="product-body">
-              <div class="product-badge"><span class="badge badge-papelaria">Papelaria</span></div>
-              <h3 class="product-name">Calendário Passarada 2026</h3>
-              <p class="product-desc">Calendário de mesa temático com ilustrações aquareladas de pássaros brasileiros. Um mês, uma espécie, uma frase inspiradora. Base de madeira inclusa.</p>
-              <div class="product-footer">
-                <span class="product-tag">Edição 2026</span>
-                <a href="https://wa.me/55XXXXXXXX?text=Olá!%20Tenho%20interesse%20no%20Calendário%20Passarada%202026." class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
-              </div>
-            </div>
-          </article>
-
+        <div class="products-grid" id="products-grid">
+          <p style="color:var(--text-mid);padding:2rem 0">Carregando produtos...</p>
         </div>
       </div>
     </section>
@@ -1206,63 +1115,11 @@
           </p>
         </div>
 
-        <div class="shirts-grid">
+        <div class=”shirts-grid” id=”shirts-grid”></div>
 
-          <div class="shirt-card">
-            <img src="./imagens/Sarah_Jair.jpeg" alt="Camiseta Filhos da Tribo off-white com logo bordada usada em visita cultural" />
-            <div class="shirt-card-overlay">
-              <div class="shirt-card-info">
-                <p class="shirt-card-name">Camiseta Filhos da Tribo</p>
-                <p class="shirt-card-desc">Logo bordada, off-white â€” para orgulhar a tribo</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="shirt-card">
-            <img src="./imagens/Amanda_Raquel.jpeg" alt="Camiseta Sagrada Família — arte especial de maternidade e natividade em tom bege" />
-            <div class="shirt-card-overlay">
-              <div class="shirt-card-info">
-                <p class="shirt-card-name">Camiseta Sagrada Família</p>
-                <p class="shirt-card-desc">Arte especial maternidade e natividade</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="shirt-card">
-            <img src="./imagens/Flavia.jpeg" alt="Camiseta verde militar com arte de onça pintada em estilo tribal" />
-            <div class="shirt-card-overlay">
-              <div class="shirt-card-info">
-                <p class="shirt-card-name">Camiseta Garotona</p>
-                <p class="shirt-card-desc">Verde militar com onça tribal pintada</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="shirt-card">
-            <img src="./imagens/Joao_Alice.jpeg" alt="Camiseta Festa Junina azul com estampa Que Onda do Caramba e itens juninos" />
-            <div class="shirt-card-overlay">
-              <div class="shirt-card-info">
-                <p class="shirt-card-name">Camiseta Festa Junina</p>
-                <p class="shirt-card-desc">"Que Onda do Caramba" — clima de arraial!</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="shirt-card">
-            <img src="./imagens/Darle_Jair.jpeg" alt="Camiseta preta com coruja colorida em pontilhismo artesanal" />
-            <div class="shirt-card-overlay">
-              <div class="shirt-card-info">
-                <p class="shirt-card-name">Camiseta Coruja</p>
-                <p class="shirt-card-desc">Coruja colorida em pontilhismo — arte viva</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="shirts-cta">
+        <div class=”shirts-cta”>
           <p>Quer uma camiseta com o seu design? Fale com a gente e criamos algo exclusivo!</p>
-          <a href="https://wa.me/55XXXXXXXX?text=Olá!%20Quero%20encomendar%20uma%20camiseta%20personalizada." class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <a id=”btn-camiseta-wa” href=”#” class=”btn btn-primary” target=”_blank” rel=”noopener noreferrer”>
             Encomendar Camiseta
           </a>
         </div>
@@ -1353,57 +1210,7 @@
           <p class="section-subtitle">Clientes que são mais do que compradores — são parte da nossa história.</p>
         </div>
 
-        <div class="tribe-grid">
-
-          <div class="tribe-card">
-            <img src="./imagens/Sarah_Jair.jpeg" alt="Cliente usando camiseta Filhos da Tribo off-white em visita cultural" />
-            <div class="tribe-overlay">
-              <div class="tribe-overlay-icon">💛</div>
-              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
-            </div>
-          </div>
-
-          <div class="tribe-card">
-            <img src="./imagens/Darle_Jair.jpeg" alt="Cliente usando camiseta preta com coruja colorida em pontilhismo artesanal" />
-            <div class="tribe-overlay">
-              <div class="tribe-overlay-icon">💛</div>
-              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
-            </div>
-          </div>
-
-          <div class="tribe-card">
-            <img src="./imagens/Amanda_Raquel.jpeg" alt="Cliente usando camiseta Sagrada Família em tons bege e arte de maternidade" />
-            <div class="tribe-overlay">
-              <div class="tribe-overlay-icon">💛</div>
-              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
-            </div>
-          </div>
-
-          <div class="tribe-card">
-            <img src="./imagens/Flavia.jpeg" alt="Cliente usando camiseta verde militar com arte de onÃ§a pintada estilo tribal" />
-            <div class="tribe-overlay">
-              <div class="tribe-overlay-icon">💛</div>
-              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
-            </div>
-          </div>
-
-          <div class="tribe-card">
-            <img src="./imagens/Flavia.jpeg" alt="Cliente usando camiseta verde militar com arte de onÃ§a pintada estilo tribal" />
-            <div class="tribe-overlay">
-              <div class="tribe-overlay-icon">💛</div>
-              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
-            </div>
-          </div>
-
-          <div class="tribe-card">
-            <img src="./imagens/Joao_Alice.jpeg" alt="Clientes usando camiseta Festa Junina azul com estampa Que Onda do Caramba" />
-            <div class="tribe-overlay">
-              <div class="tribe-overlay-icon">💛</div>
-              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
-            </div>
-          </div>
-
-        </div>
+        <div class="tribe-grid" id="tribe-grid"></div>
       </div>
     </section>
 
@@ -1419,21 +1226,11 @@
           Uma peça feita só para você, com toda a alma da Tribo.
         </p>
         <div class="cta-btns">
-          <a
-            href="https://wa.me/55XXXXXXXX?text=Olá!%20Quero%20encomendar%20um%20produto%20personalizado%20da%20Filhos%20da%20Tribo."
-            class="btn btn-whatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Falar no WhatsApp
+          <a id="btn-cta-wa" href="#" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            📱 Falar no WhatsApp
           </a>
-          <a
-            href="https://instagram.com/filhosdatribo"
-            class="btn btn-outline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver no Instagram
+          <a id="btn-cta-ig" href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            📸 Ver no Instagram
           </a>
         </div>
       </div>
@@ -1469,10 +1266,10 @@
 
         <div class="footer-col footer-contact">
           <h4>Fale Conosco</h4>
-          <p>📍 Salvador, Bahia, Brasil</p>
-          <p><a href="https://wa.me/55XXXXXXXX" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
-          <p><a href="https://instagram.com/filhosdatribo" target="_blank" rel="noopener noreferrer">@filhosdatribo</a></p>
-          <p><a href="mailto:contato@filhosdatribo.com.br">contato@filhosdatribo.com.br</a></p>
+          <p id="footer-endereco">📍 Salvador, Bahia, Brasil</p>
+          <p><a id="footer-wa" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+          <p><a id="footer-ig" href="#" target="_blank" rel="noopener noreferrer">@filhosdatribo</a></p>
+          <p><a id="footer-email" href="#">contato@filhosdatribo.com.br</a></p>
         </div>
 
       </div>
@@ -1502,7 +1299,6 @@
       toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
     });
 
-    // Close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
@@ -1512,36 +1308,172 @@
       });
     });
 
-    // ---- Product image switcher ----
+    // ---- Image switcher (used by product cards) ----
     function switchImg(imgId, src, dotBtn) {
       const img = document.getElementById(imgId);
       if (!img) return;
       img.src = src;
-      // update dots
-      const dots = dotBtn.parentElement.querySelectorAll('.img-dot');
-      dots.forEach(d => d.classList.remove('active'));
+      dotBtn.parentElement.querySelectorAll('.img-dot').forEach(d => d.classList.remove('active'));
       dotBtn.classList.add('active');
     }
 
-    // ---- Smooth reveal on scroll (IntersectionObserver) ----
-    const revealTargets = document.querySelectorAll('.product-card, .pillar, .shirt-card, .tribe-card');
+    // ---- Scroll reveal ----
+    function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = '';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = '';
-          observer.unobserve(entry.target);
-        }
+      document.querySelectorAll('.product-card, .pillar, .shirt-card, .tribe-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.55s ease, transform 0.55s ease, box-shadow 0.3s ease';
+        observer.observe(el);
       });
-    }, { threshold: 0.12 });
+    }
 
-    revealTargets.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease, box-shadow 0.3s ease';
-      observer.observe(el);
-    });
+    // ---- Badge class por categoria ----
+    function badgeClass(cat) {
+      if (!cat) return 'badge-ceramica';
+      const c = cat.toLowerCase();
+      if (c.includes('papel')) return 'badge-papelaria';
+      if (c.includes('camis')) return 'badge-camiseta';
+      return 'badge-ceramica';
+    }
+
+    // ---- Renderizar produtos ----
+    function renderProdutos(produtos, waNumber) {
+      const grid = document.getElementById('products-grid');
+      if (!grid) return;
+      grid.innerHTML = produtos.map((p, i) => {
+        const imgId = `prod-img-${p.id || i}`;
+        const imgs = p.imagens || [];
+        const firstImg = imgs[0] || '';
+        const dots = imgs.length > 1
+          ? `<div class="img-dots">${imgs.map((src, j) =>
+              `<button class="img-dot${j === 0 ? ' active' : ''}" onclick="switchImg('${imgId}','${src}',this)" aria-label="Imagem ${j+1}"></button>`
+            ).join('')}</div>`
+          : '';
+        const waText = encodeURIComponent(`Olá! Tenho interesse no produto: ${p.nome}.`);
+        const waLink = waNumber ? `https://wa.me/${waNumber}?text=${waText}` : '#';
+        return `
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <img id="${imgId}" src="${firstImg}" alt="${p.nome}" loading="lazy" />
+              ${dots}
+            </div>
+            <div class="product-body">
+              <div class="product-badge"><span class="badge ${badgeClass(p.categoria)}">${p.categoria || ''}</span></div>
+              <h3 class="product-name">${p.nome}</h3>
+              <p class="product-desc">${p.descricao || ''}</p>
+              <div class="product-footer">
+                <span class="product-tag">✦ Peça única</span>
+                <a href="${waLink}" class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
+              </div>
+            </div>
+          </article>`;
+      }).join('');
+    }
+
+    // ---- Renderizar camisetas ----
+    function renderCamisetas(camisetas) {
+      const grid = document.getElementById('shirts-grid');
+      if (!grid) return;
+      grid.innerHTML = camisetas.map(c => `
+        <div class="shirt-card">
+          <img src="${c.imagem}" alt="${c.nome}" loading="lazy" />
+          <div class="shirt-card-overlay">
+            <div class="shirt-card-info">
+              <p class="shirt-card-name">${c.nome}</p>
+              <p class="shirt-card-desc">${c.descricao || ''}</p>
+            </div>
+          </div>
+        </div>`).join('');
+    }
+
+    // ---- Renderizar galeria da tribo (usa fotos das camisetas) ----
+    function renderTribo(camisetas) {
+      const grid = document.getElementById('tribe-grid');
+      if (!grid) return;
+      grid.innerHTML = camisetas.map(c => `
+        <div class="tribe-card">
+          <img src="${c.imagem}" alt="Cliente com ${c.nome}" loading="lazy" />
+          <div class="tribe-overlay">
+            <div class="tribe-overlay-icon">💛</div>
+            <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
+          </div>
+        </div>`).join('');
+    }
+
+    // ---- Aplicar configurações de contato ----
+    function aplicarConfig(cfg) {
+      const wa = cfg.whatsapp || '';
+      const ig = cfg.instagram || 'filhosdatribo';
+      const email = cfg.email || '';
+      const end = cfg.endereco || 'Salvador, Bahia, Brasil';
+      const waBase = `https://wa.me/${wa}`;
+      const igBase = `https://instagram.com/${ig}`;
+
+      // CTA
+      const btnCtaWa = document.getElementById('btn-cta-wa');
+      if (btnCtaWa) btnCtaWa.href = `${waBase}?text=${encodeURIComponent('Olá! Quero encomendar um produto personalizado da Filhos da Tribo.')}`;
+      const btnCtaIg = document.getElementById('btn-cta-ig');
+      if (btnCtaIg) btnCtaIg.href = igBase;
+
+      // Camiseta CTA
+      const btnCamisetaWa = document.getElementById('btn-camiseta-wa');
+      if (btnCamisetaWa) btnCamisetaWa.href = `${waBase}?text=${encodeURIComponent('Olá! Quero encomendar uma camiseta personalizada.')}`;
+
+      // Footer
+      const fEnd = document.getElementById('footer-endereco');
+      if (fEnd) fEnd.textContent = `📍 ${end}`;
+      const fWa = document.getElementById('footer-wa');
+      if (fWa) { fWa.href = waBase; fWa.textContent = 'WhatsApp'; }
+      const fIg = document.getElementById('footer-ig');
+      if (fIg) { fIg.href = igBase; fIg.textContent = `@${ig}`; }
+      const fEmail = document.getElementById('footer-email');
+      if (fEmail) { fEmail.href = `mailto:${email}`; fEmail.textContent = email; }
+
+      // Social icons no footer
+      const fsIg = document.querySelector('.footer-social a[aria-label*="Instagram"]');
+      if (fsIg) fsIg.href = igBase;
+      const fsWa = document.querySelector('.footer-social a[aria-label*="WhatsApp"]');
+      if (fsWa) fsWa.href = waBase;
+
+      return wa;
+    }
+
+    // ---- Bootstrap: buscar dados e renderizar ----
+    async function init() {
+      try {
+        const [resProd, resCam, resCfg] = await Promise.all([
+          fetch('./_data/produtos.json'),
+          fetch('./_data/camisetas.json'),
+          fetch('./_data/config.json'),
+        ]);
+
+        const { produtos }   = await resProd.json();
+        const { camisetas }  = await resCam.json();
+        const cfg            = await resCfg.json();
+
+        const waNumber = aplicarConfig(cfg);
+        renderProdutos(produtos, waNumber);
+        renderCamisetas(camisetas);
+        renderTribo(camisetas);
+        initReveal();
+      } catch (err) {
+        console.error('Erro ao carregar dados:', err);
+        const grid = document.getElementById('products-grid');
+        if (grid) grid.innerHTML = '<p style="color:var(--red);padding:1rem">Erro ao carregar produtos. Verifique os arquivos em _data/.</p>';
+      }
+    }
+
+    init();
   </script>
 
 </body>
