@@ -23,6 +23,18 @@ create table if not exists camisetas (
   criado_em timestamptz default now()
 );
 
+-- TABELA: tribo (galeria de clientes/modelos)
+create table if not exists tribo (
+  id        uuid primary key default gen_random_uuid(),
+  imagem    text not null,
+  legenda   text default '',
+  criado_em timestamptz default now()
+);
+
+alter table tribo enable row level security;
+create policy "leitura_publica_tribo" on tribo for select using (true);
+create policy "escrita_admin_tribo"   on tribo for all using (auth.role() = 'authenticated');
+
 -- TABELA: config (uma única linha com id=1)
 create table if not exists config (
   id        int primary key default 1,

@@ -219,6 +219,7 @@
   <div class="tabs">
     <button class="tab-btn active" data-tab="produtos" onclick="switchTab(this)">🪴 Produtos</button>
     <button class="tab-btn" data-tab="camisetas" onclick="switchTab(this)">👕 Camisetas</button>
+    <button class="tab-btn" data-tab="tribo" onclick="switchTab(this)">💛 Quem é da Tribo</button>
     <button class="tab-btn" data-tab="config" onclick="switchTab(this)">⚙️ Configurações</button>
   </div>
 
@@ -244,6 +245,18 @@
       <button class="btn btn-primary" onclick="abrirModal('camiseta')">+ Nova Camiseta</button>
     </div>
     <div class="items-grid" id="grid-camisetas"></div>
+  </div>
+
+  <!-- TRIBO -->
+  <div class="tab-panel" id="panel-tribo">
+    <div class="panel-hd">
+      <div class="panel-hd-text">
+        <h2>Quem Já é da Tribo</h2>
+        <p>Fotos de clientes e modelos usando os produtos</p>
+      </div>
+      <button class="btn btn-primary" onclick="abrirModalTribo()">+ Nova Foto</button>
+    </div>
+    <div class="items-grid" id="grid-tribo"></div>
   </div>
 
   <!-- CONFIG -->
@@ -346,7 +359,7 @@ sb.auth.onAuthStateChange((event, session) => {
 async function mostrarApp() {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display = 'block';
-  await Promise.all([ carregarProdutos(), carregarCamisetas(), carregarConfig() ]);
+  await Promise.all([ carregarProdutos(), carregarCamisetas(), carregarTribo(), carregarConfig() ]);
 }
 
 // ============================================================
@@ -588,6 +601,8 @@ function fecharModal() {
   document.getElementById('overlay').classList.remove('open');
   imagensPendentes = [];
   imagensExistentes = [];
+  triboModalAberto = false;
+  triboImagemPendente = null;
 }
 
 function fecharOverlay(e) {
@@ -598,6 +613,7 @@ function fecharOverlay(e) {
 // MODAL — SALVAR
 // ============================================================
 async function salvarItem() {
+  if (triboModalAberto) { await salvarTribo(); return; }
   const nome = document.getElementById('m-nome')?.value.trim();
   if (!nome) { toast('O nome é obrigatório.', 'err'); return; }
 
@@ -681,6 +697,112 @@ async function excluirItem(tipo, id, nome) {
   if (error) { toast('Erro ao remover.', 'err'); return; }
   tipo === 'produto' ? await carregarProdutos() : await carregarCamisetas();
   toast('Item removido com sucesso.', 'ok');
+}
+
+// ============================================================
+// TRIBO — galeria de clientes/modelos
+// ============================================================
+async function carregarTribo() {
+  const { data, error } = await sb.from('tribo').select('*').order('criado_em', { ascending: false });
+  if (error) { toast('Erro ao carregar galeria da Tribo', 'err'); return; }
+  const grid = document.getElementById('grid-tribo');
+  const lista = data || [];
+  if (!lista.length) {
+    grid.innerHTML = '<p class="empty-state">Nenhuma foto cadastrada. Clique em "+ Nova Foto".</p>';
+    return;
+  }
+  grid.innerHTML = lista.map(t => `
+    <div class="item-card">
+      <div class="card-img">
+        ${t.imagem ? `<img src="${t.imagem}" alt="${t.legenda || ''}" onerror="this.parentElement.innerHTML='<div class=\\"no-img\\">💛</div>'">` : '<div class="no-img">💛</div>'}
+        <span class="card-badge">Tribo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">${t.legenda || 'Sem legenda'}</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-danger" onclick='excluirTribo("${t.id}","${(t.legenda||'foto').replace(/"/g,'')}")'>🗑️ Remover</button>
+      </div>
+    </div>`).join('');
+}
+
+let triboImagemPendente = null;
+let triboModalAberto = false;
+
+function abrirModalTribo() {
+  triboImagemPendente = null;
+  triboModalAberto = true;
+  document.getElementById('modal-titulo').textContent = 'Nova Foto da Tribo';
+  document.getElementById('modal-corpo').innerHTML = `
+    <div class="form-group">
+      <label>Legenda (opcional)</label>
+      <input type="text" id="m-legenda" placeholder="Ex: Cliente feliz com sua Muringa Verde" />
+    </div>
+    <div class="form-group">
+      <label>Foto *</label>
+      ${uploadArea('Selecione 1 foto')}
+      <div class="img-preview-row" id="preview-row"></div>
+      <p class="upload-progress" id="upload-prog"></p>
+    </div>`;
+
+  const input = document.getElementById('m-fotos');
+  input.removeAttribute('multiple');
+  input.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    triboImagemPendente = file;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      document.getElementById('preview-row').innerHTML =
+        `<div class="img-thumb"><img src="${ev.target.result}" /></div>`;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('overlay').classList.add('open');
+}
+
+async function salvarTribo() {
+  if (!triboImagemPendente) { toast('Selecione uma foto.', 'err'); return; }
+
+  const btn = document.getElementById('btn-salvar');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span> Salvando...';
+
+  try {
+    const prog = document.getElementById('upload-prog');
+    if (prog) prog.textContent = 'Enviando foto...';
+    const file = triboImagemPendente;
+    const ext  = file.name.split('.').pop();
+    const path = `tribo_${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`;
+    const { error: upErr } = await sb.storage.from('imagens').upload(path, file, { upsert: true });
+    if (upErr) throw upErr;
+    const { data: urlData } = sb.storage.from('imagens').getPublicUrl(path);
+    if (prog) prog.textContent = '';
+
+    const legenda = document.getElementById('m-legenda')?.value.trim() || '';
+    const { error } = await sb.from('tribo').insert({ imagem: urlData.publicUrl, legenda });
+    if (error) throw error;
+
+    fecharModal();
+    triboModalAberto = false;
+    await carregarTribo();
+    toast('Foto adicionada! O site já está atualizado.', 'ok');
+  } catch(e) {
+    console.error(e);
+    toast('Erro ao salvar. Tente novamente.', 'err');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'Salvar';
+  }
+}
+
+async function excluirTribo(id, legenda) {
+  if (!confirm(`Remover "${legenda}"?\nEsta ação não pode ser desfeita.`)) return;
+  const { error } = await sb.from('tribo').delete().eq('id', id);
+  if (error) { toast('Erro ao remover.', 'err'); return; }
+  await carregarTribo();
+  toast('Foto removida com sucesso.', 'ok');
 }
 
 // ============================================================

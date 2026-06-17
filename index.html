@@ -1403,23 +1403,20 @@
         </div>`).join('');
     }
 
-    // ---- Renderizar galeria da tribo (usa fotos das camisetas) ----
-    function renderTribo() {
-      const fotos = [
-        { src: './imagens/Sarah_Jair.jpeg',    alt: 'Cliente usando camiseta Filhos da Tribo' },
-        { src: './imagens/Darle_Jair.jpeg',    alt: 'Cliente usando camiseta com coruja' },
-        { src: './imagens/Amanda_Raquel.jpeg', alt: 'Cliente usando camiseta Sagrada Família' },
-        { src: './imagens/Flavia.jpeg',        alt: 'Cliente usando camiseta com onça tribal' },
-        { src: './imagens/Joao_Alice.jpeg',    alt: 'Clientes usando camiseta Festa Junina' },
-      ];
+    // ---- Renderizar galeria da tribo (dinâmico via Supabase) ----
+    function renderTribo(fotos) {
       const grid = document.getElementById('tribe-grid');
       if (!grid) return;
+      if (!fotos || !fotos.length) {
+        grid.innerHTML = '<p style="color:rgba(245,240,232,0.6);padding:2rem 0">Em breve novas fotos aqui!</p>';
+        return;
+      }
       grid.innerHTML = fotos.map(f => `
         <div class="tribe-card">
-          <img src="${f.src}" alt="${f.alt}" loading="lazy" />
+          <img src="${f.imagem}" alt="${f.legenda || 'Cliente da Filhos da Tribo'}" loading="lazy" />
           <div class="tribe-overlay">
             <div class="tribe-overlay-icon">💛</div>
-            <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
+            <p class="tribe-overlay-text">${f.legenda || 'Cliente feliz<br/>da Tribo!'}</p>
           </div>
         </div>`).join('');
     }
@@ -1467,20 +1464,22 @@
 
     async function init() {
       try {
-        const [resProd, resCam, resCfg] = await Promise.all([
+        const [resProd, resCam, resTribo, resCfg] = await Promise.all([
           sb.from('produtos').select('*').order('criado_em', { ascending: true }),
           sb.from('camisetas').select('*').order('criado_em', { ascending: true }),
+          sb.from('tribo').select('*').order('criado_em', { ascending: true }),
           sb.from('config').select('*').eq('id', 1).single(),
         ]);
 
-        const produtos  = resProd.data  || [];
-        const camisetas = resCam.data   || [];
-        const cfg       = resCfg.data   || {};
+        const produtos  = resProd.data   || [];
+        const camisetas = resCam.data    || [];
+        const tribo     = resTribo.data  || [];
+        const cfg       = resCfg.data    || {};
 
         const waNumber = aplicarConfig(cfg);
         renderProdutos(produtos, waNumber);
         renderCamisetas(camisetas);
-        renderTribo();
+        renderTribo(tribo);
         initReveal();
       } catch (err) {
         console.error('Erro ao carregar dados:', err);
