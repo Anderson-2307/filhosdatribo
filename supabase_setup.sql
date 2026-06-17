@@ -1,9 +1,14 @@
 -- ============================================================
--- FILHOS DA TRIBO — Setup do Banco de Dados (Supabase)
--- Execute este script no SQL Editor do seu projeto Supabase
+-- FILHOS DA TRIBO — Setup completo do Banco de Dados (Supabase)
+-- Execute este script no SQL Editor do seu projeto em supabase.com
+-- É seguro executar mais de uma vez (usa IF NOT EXISTS / ON CONFLICT)
 -- ============================================================
 
--- TABELA: produtos
+-- ============================================================
+-- TABELAS
+-- ============================================================
+
+-- Produtos artesanais (muringas, calendários, etc.)
 create table if not exists produtos (
   id         uuid primary key default gen_random_uuid(),
   nome       text not null,
@@ -14,7 +19,7 @@ create table if not exists produtos (
   criado_em  timestamptz default now()
 );
 
--- TABELA: camisetas
+-- Camisetas personalizadas
 create table if not exists camisetas (
   id        uuid primary key default gen_random_uuid(),
   nome      text not null,
@@ -23,7 +28,7 @@ create table if not exists camisetas (
   criado_em timestamptz default now()
 );
 
--- TABELA: tribo (galeria de clientes/modelos)
+-- Galeria de clientes e modelos ("Quem já é da Tribo")
 create table if not exists tribo (
   id        uuid primary key default gen_random_uuid(),
   imagem    text not null,
@@ -31,11 +36,7 @@ create table if not exists tribo (
   criado_em timestamptz default now()
 );
 
-alter table tribo enable row level security;
-create policy "leitura_publica_tribo" on tribo for select using (true);
-create policy "escrita_admin_tribo"   on tribo for all using (auth.role() = 'authenticated');
-
--- TABELA: config (uma única linha com id=1)
+-- Configurações do site (whatsapp, instagram, e-mail, endereço)
 create table if not exists config (
   id        int primary key default 1,
   whatsapp  text default '',
@@ -51,24 +52,27 @@ insert into config (id) values (1) on conflict (id) do nothing;
 -- PERMISSÕES (Row Level Security)
 -- ============================================================
 
--- Habilita RLS nas tabelas
 alter table produtos  enable row level security;
 alter table camisetas enable row level security;
+alter table tribo     enable row level security;
 alter table config    enable row level security;
 
 -- Qualquer pessoa pode LER (site público)
 create policy "leitura_publica_produtos"  on produtos  for select using (true);
 create policy "leitura_publica_camisetas" on camisetas for select using (true);
+create policy "leitura_publica_tribo"     on tribo     for select using (true);
 create policy "leitura_publica_config"    on config    for select using (true);
 
 -- Apenas usuários autenticados podem ESCREVER (admin)
 create policy "escrita_admin_produtos"  on produtos  for all using (auth.role() = 'authenticated');
 create policy "escrita_admin_camisetas" on camisetas for all using (auth.role() = 'authenticated');
+create policy "escrita_admin_tribo"     on tribo     for all using (auth.role() = 'authenticated');
 create policy "escrita_admin_config"    on config    for all using (auth.role() = 'authenticated');
 
 -- ============================================================
 -- STORAGE: bucket para imagens
 -- ============================================================
+
 insert into storage.buckets (id, name, public)
 values ('imagens', 'imagens', true)
 on conflict (id) do nothing;
