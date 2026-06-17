@@ -1,0 +1,1544 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filhos da Tribo â€” Arte Artesanal Baiana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --teal: #1A4A4A;
+      --teal-light: #2a6060;
+      --red: #C0392B;
+      --gold: #E8A827;
+      --gold-dark: #c9911e;
+      --green: #2D6A2D;
+      --dark: #1C1C1C;
+      --cream: #F5F0E8;
+      --cream-dark: #EDE7D8;
+      --white: #FFFFFF;
+      --text-dark: #2a2a2a;
+      --text-mid: #555;
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.10);
+      --shadow-md: 0 6px 28px rgba(0,0,0,0.16);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.22);
+      --radius: 12px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--teal-light); }
+
+    img { display: block; max-width: 100%; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Focus states for accessibility */
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY HELPERS
+    ============================================================ */
+    .font-display { font-family: 'Playfair Display', serif; }
+    .font-script  { font-family: 'Dancing Script', cursive; }
+
+    .section-tag {
+      font-family: 'Dancing Script', cursive;
+      color: var(--gold);
+      font-size: 1.25rem;
+      display: block;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--teal);
+    }
+
+    .section-title.light { color: var(--white); }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 580px;
+      margin-top: 0.75rem;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--transition);
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      border-color: var(--gold);
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,168,39,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .btn-teal {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+    .btn-teal:hover {
+      background: var(--teal-light);
+      border-color: var(--teal-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,74,74,0.35);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+      border-color: #25D366;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe5a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+    }
+
+    /* ============================================================
+       BADGES
+    ============================================================ */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .badge-ceramica { background: rgba(26,74,74,0.12); color: var(--teal); }
+    .badge-papelaria { background: rgba(232,168,39,0.18); color: var(--gold-dark); }
+    .badge-camiseta  { background: rgba(192,57,43,0.12); color: var(--red); }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--teal);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    }
+
+    .navbar {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      background: var(--cream);
+      border-radius: 50%;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      transition: transform var(--transition);
+    }
+    .nav-logo:hover { transform: scale(1.05); }
+    .nav-logo img {
+      height: 52px;
+      width: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color var(--transition);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--green) 60%, #1a3a1a 100%);
+    }
+
+    /* Tribal pattern background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(232,168,39,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(192,57,43,0.06) 0%, transparent 40%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 30px,
+          rgba(255,255,255,0.015) 30px,
+          rgba(255,255,255,0.015) 60px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 30px,
+          rgba(255,255,255,0.015) 30px,
+          rgba(255,255,255,0.015) 60px
+        );
+      pointer-events: none;
+    }
+
+    /* SVG tribal decoration */
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 600px; height: 600px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='rgba(232,168,39,0.12)' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='70' fill='none' stroke='rgba(232,168,39,0.08)' stroke-width='1.5'/%3E%3Ccircle cx='100' cy='100' r='50' fill='none' stroke='rgba(232,168,39,0.06)' stroke-width='1'/%3E%3Cpath d='M100 10 L110 40 L140 40 L118 58 L128 88 L100 70 L72 88 L82 58 L60 40 L90 40 Z' fill='rgba(232,168,39,0.07)' /%3E%3Cpath d='M100 50 L106 68 L126 68 L110 79 L116 97 L100 86 L84 97 L90 79 L74 68 L94 68 Z' fill='rgba(232,168,39,0.05)'/%3E%3Ccircle cx='100' cy='100' r='8' fill='rgba(232,168,39,0.15)'/%3E%3Cline x1='100' y1='10' x2='100' y2='190' stroke='rgba(232,168,39,0.05)' stroke-width='1'/%3E%3Cline x1='10' y1='100' x2='190' y2='100' stroke='rgba(232,168,39,0.05)' stroke-width='1'/%3E%3Cline x1='25' y1='25' x2='175' y2='175' stroke='rgba(232,168,39,0.04)' stroke-width='1'/%3E%3Cline x1='175' y1='25' x2='25' y2='175' stroke='rgba(232,168,39,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content {}
+
+    .hero-tag {
+      font-family: 'Dancing Script', cursive;
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title span { color: var(--gold); }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-logo-wrap {
+      position: relative;
+      width: 320px; height: 320px;
+    }
+
+    .hero-logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,168,39,0.12) 0%, transparent 70%);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.7; }
+    }
+
+    .hero-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.4));
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Floating dots decorative */
+    .hero-dots {
+      position: absolute;
+      pointer-events: none;
+    }
+    .hero-dots span {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.4;
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero-dots span:nth-child(1) { width:10px; height:10px; top:-40px; left:20px; animation-delay:0s; }
+    .hero-dots span:nth-child(2) { width:6px; height:6px; top:20px; right:-20px; animation-delay:1s; }
+    .hero-dots span:nth-child(3) { width:14px; height:14px; bottom:0; left:-30px; animation-delay:2s; }
+    .hero-dots span:nth-child(4) { width:8px; height:8px; bottom:40px; right:10px; animation-delay:0.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ============================================================
+       DIVIDER WAVE
+    ============================================================ */
+    .wave-divider {
+      line-height: 0;
+      overflow: hidden;
+    }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ============================================================
+       SECTION BASE
+    ============================================================ */
+    .section {
+      padding: 6rem 1.5rem;
+    }
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-subtitle { margin: 0.75rem auto 0; }
+
+    .bg-cream { background: var(--cream); }
+    .bg-white  { background: var(--white); }
+    .bg-dark   { background: var(--dark); }
+    .bg-teal   { background: var(--teal); }
+
+    /* ============================================================
+       PRODUTOS GRID
+    ============================================================ */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.07);
+    }
+
+    /* Thumbnail dots for products with multiple images */
+    .img-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+    .img-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      border: none;
+      transition: background var(--transition);
+    }
+    .img-dot.active { background: var(--white); }
+
+    .product-body {
+      padding: 1.4rem 1.5rem 1.6rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-badge { margin-bottom: 0.6rem; }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .product-tag {
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       CAMISETAS CAROUSEL / GALERIA
+    ============================================================ */
+    .shirts-section {
+      background: var(--dark);
+      padding: 6rem 1.5rem;
+    }
+
+    .shirts-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .shirt-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+
+    .shirt-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .shirt-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,74,74,0.92) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+
+    .shirt-card:hover img { transform: scale(1.08); }
+    .shirt-card:hover .shirt-card-overlay { opacity: 1; }
+
+    .shirt-card-info {}
+    .shirt-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .shirt-card-desc {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.3rem;
+    }
+
+    .shirts-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .shirts-cta p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    /* ============================================================
+       POR QUE FILHOS DA TRIBO
+    ============================================================ */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .pillar {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .pillar:nth-child(1)::before { background: var(--teal); }
+    .pillar:nth-child(2)::before { background: var(--gold); }
+    .pillar:nth-child(3)::before { background: var(--red); }
+
+    .pillar:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+
+    .pillar-icon {
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      display: block;
+      line-height: 1;
+    }
+    .pillar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .pillar-text {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       SOBRE NÃ“S
+    ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text .section-title { margin-bottom: 1.5rem; }
+
+    .about-text p {
+      font-size: 0.97rem;
+      color: var(--text-mid);
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+    }
+
+    .about-text p:last-of-type { margin-bottom: 2rem; }
+
+    .about-quote {
+      border-left: 4px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      background: rgba(232,168,39,0.06);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .about-quote p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.25rem;
+      color: var(--teal);
+      margin: 0 !important;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+    .about-badge-float {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      min-width: 110px;
+    }
+    .about-badge-float strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      display: block;
+      line-height: 1;
+    }
+    .about-badge-float span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       DEPOIMENTOS / GALERIA DE CLIENTES
+    ============================================================ */
+    .tribe-section {
+      background: var(--cream);
+      padding: 6rem 1.5rem;
+    }
+
+    .tribe-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .tribe-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+
+    .tribe-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .tribe-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,74,74,0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .tribe-card:hover img { transform: scale(1.1); }
+    .tribe-card:hover .tribe-overlay { opacity: 1; }
+
+    .tribe-overlay-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .tribe-overlay-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.05rem;
+      color: var(--gold);
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       CTA FINAL
+    ============================================================ */
+    .cta-section {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--green) 100%);
+      padding: 7rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 90%, rgba(232,168,39,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-tag {
+      font-family: 'Dancing Script', cursive;
+      color: var(--gold);
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .cta-text {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--dark);
+      padding: 4rem 1.5rem 2rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand {}
+    .footer-logo-wrap {
+      display: inline-flex;
+      background: var(--cream);
+      border-radius: 50%;
+      padding: 5px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .footer-logo {
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    .footer-tagline {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .footer-brand p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .footer-col h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.03em;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.88rem;
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-contact p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer-contact a { color: rgba(255,255,255,0.55); transition: color var(--transition); }
+    .footer-contact a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
+
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .social-link {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      transition: all var(--transition);
+    }
+    .social-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       DECORATIVE ORNAMENT
+    ============================================================ */
+    .ornament {
+      text-align: center;
+      margin: 1rem 0;
+      color: var(--gold);
+      font-size: 1.2rem;
+      opacity: 0.5;
+      letter-spacing: 0.3em;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1200px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .shirts-grid   { grid-template-columns: repeat(3, 1fr); }
+      .tribe-grid    { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .about-grid    { grid-template-columns: 1fr; }
+      .pillars-grid  { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hero-inner    { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-subtitle { margin: 0 auto 2.5rem; }
+      .hero-btns     { justify-content: center; }
+      .hero-visual   { order: -1; }
+      .hero-logo-wrap { width: 220px; height: 220px; }
+      .hero::after   { display: none; }
+      .about-badge-float { bottom: 10px; left: 10px; }
+      .footer-top    { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        background: var(--teal);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      .nav-links.open { max-height: 320px; }
+      .nav-links li { border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+      }
+      .nav-links a::after { display: none; }
+      .nav-toggle { display: flex; }
+
+      .products-grid { grid-template-columns: 1fr; }
+      .shirts-grid   { grid-template-columns: repeat(2, 1fr); }
+      .tribe-grid    { grid-template-columns: repeat(2, 1fr); }
+      .section       { padding: 4rem 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      .shirts-grid  { grid-template-columns: 1fr; }
+      .tribe-grid   { grid-template-columns: repeat(2, 1fr); }
+      .cta-btns     { flex-direction: column; align-items: center; }
+      .hero-btns    { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVBAR
+  ============================================================ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="NavegaÃ§Ã£o principal">
+      <a href="#inicio" class="nav-logo" aria-label="Filhos da Tribo â€” PÃ¡gina inicial">
+        <img src="./imagens/Logo-Filhos-da-Tribo-Vetor.png" alt="Logo Filhos da Tribo â€” cÃ­rculo com padrÃµes tribais" />
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#inicio">InÃ­cio</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#sobre">Sobre NÃ³s</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="inicio" aria-label="Bem-vindo Ã  Filhos da Tribo">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="hero-tag">âœ¨ Feito Ã  mÃ£o, com alma baiana</span>
+          <h1 class="hero-title">
+            Arte que conta<br/>
+            <span>histÃ³rias,</span> feita<br/>
+            com alma baiana
+          </h1>
+          <p class="hero-subtitle">
+            Produtos artesanais pintados Ã  mÃ£o, com a identidade e a cor do Brasil. Cada peÃ§a Ã© Ãºnica, cada detalhe Ã© amor.
+          </p>
+          <div class="hero-btns">
+            <a href="#produtos" class="btn btn-primary">ðŸŽ¨ Ver Produtos</a>
+            <a href="#contato" class="btn btn-outline">Encomendar Agora</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-logo-wrap">
+            <img src="./imagens/Logo-Filhos-da-Tribo-Vetor.png" alt="Logo artesanal Filhos da Tribo com padrÃµes indÃ­genas" />
+            <div class="hero-dots">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#F5F0E8"/>
+      </svg>
+    </div>
+
+    <!-- ============================================================
+         PRODUTOS
+    ============================================================ -->
+    <section class="section bg-cream" id="produtos" aria-label="Nossos Produtos">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">ðŸŒ¿ Feito com amor</span>
+          <h2 class="section-title">Nossos Produtos</h2>
+          <p class="section-subtitle">PeÃ§as artesanais Ãºnicas, pintadas Ã  mÃ£o com tintas atÃ³xicas e muita identidade cultural brasileira.</p>
+        </div>
+
+        <div class="products-grid">
+
+          <!-- Muringa Verde -->
+          <article class="product-card">
+            <div class="product-img-wrap" id="muringa-verde-wrap">
+              <img
+                id="muringa-verde-img"
+                src="./imagens/Muringa_Verde_1.jpeg"
+                alt="Muringa Verde com Margaridas â€” filtro de barro pintado Ã  mÃ£o com flores brancas sobre fundo verde menta"
+              />
+              <div class="img-dots">
+                <button class="img-dot active" onclick="switchImg('muringa-verde-img','./imagens/Muringa_Verde_1.jpeg', this)" aria-label="Imagem 1"></button>
+                <button class="img-dot" onclick="switchImg('muringa-verde-img','./imagens/Muringa_Verde_2.jpeg', this)" aria-label="Imagem 2"></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <div class="product-badge"><span class="badge badge-ceramica">CerÃ¢mica Pintada</span></div>
+              <h3 class="product-name">Muringa Verde com Margaridas</h3>
+              <p class="product-desc">Filtro de barro artesanal pintado Ã  mÃ£o com margaridas brancas sobre fundo verde menta. Acompanha copinho. PeÃ§a Ãºnica, feita com amor.</p>
+              <div class="product-footer">
+                <span class="product-tag">âœ¦ PeÃ§a Ãºnica</span>
+                <a href="https://wa.me/55XXXXXXXX?text=OlÃ¡!%20Tenho%20interesse%20na%20Muringa%20Verde%20com%20Margaridas." class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Muringa Amarela -->
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <img
+                id="muringa-amarelo-img"
+                src="./imagens/Muringa_Amarelo_1.jpeg"
+                alt="Muringa Amarela com GirassÃ³is â€” filtro de barro pintado Ã  mÃ£o com girassÃ³is e pontilhismo"
+              />
+              <div class="img-dots">
+                <button class="img-dot active" onclick="switchImg('muringa-amarelo-img','./imagens/Muringa_Amarelo_1.jpeg', this)" aria-label="Imagem 1"></button>
+                <button class="img-dot" onclick="switchImg('muringa-amarelo-img','./imagens/Muringa_Amarelo_2.jpeg', this)" aria-label="Imagem 2"></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <div class="product-badge"><span class="badge badge-ceramica">CerÃ¢mica Pintada</span></div>
+              <h3 class="product-name">Muringa Amarela com GirassÃ³is</h3>
+              <p class="product-desc">Filtro de barro pintado Ã  mÃ£o com girassÃ³is e detalhes em pontilhismo. Alegria e cor para sua cozinha. PeÃ§a artesanal exclusiva.</p>
+              <div class="product-footer">
+                <span class="product-tag">âœ¦ PeÃ§a Ãºnica</span>
+                <a href="https://wa.me/55XXXXXXXX?text=OlÃ¡!%20Tenho%20interesse%20na%20Muringa%20Amarela%20com%20GirassÃ³is." class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Muringa Azul -->
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <img
+                src="./imagens/Muringa_Azul_1.jpeg"
+                alt="Moringa Azul Meu Pedacinho do CÃ©u â€” garrafinha de barro com cÃ©u estrelado em azul petrÃ³leo e estrelas douradas"
+              />
+            </div>
+            <div class="product-body">
+              <div class="product-badge"><span class="badge badge-ceramica">CerÃ¢mica Pintada</span></div>
+              <h3 class="product-name">Moringa Azul "Meu Pedacinho do CÃ©u"</h3>
+              <p class="product-desc">Garrafinha de barro pintada com cÃ©u estrelado em azul petrÃ³leo e estrelas douradas. Mensagem especial: "meu pedacinho do cÃ©u". Ideal para presente.</p>
+              <div class="product-footer">
+                <span class="product-tag">âœ¦ PeÃ§a Ãºnica</span>
+                <a href="https://wa.me/55XXXXXXXX?text=OlÃ¡!%20Tenho%20interesse%20na%20Moringa%20Azul." class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CalendÃ¡rio Passarada -->
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <img
+                id="calendario-img"
+                src="./imagens/Calendario_1.jpeg"
+                alt="CalendÃ¡rio Passarada 2026 â€” calendÃ¡rio de mesa com ilustraÃ§Ãµes aquareladas de pÃ¡ssaros brasileiros"
+              />
+              <div class="img-dots">
+                <button class="img-dot active" onclick="switchImg('calendario-img','./imagens/Calendario_1.jpeg', this)" aria-label="Imagem 1"></button>
+                <button class="img-dot" onclick="switchImg('calendario-img','./imagens/Calendario_2.jpeg', this)" aria-label="Imagem 2"></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <div class="product-badge"><span class="badge badge-papelaria">Papelaria</span></div>
+              <h3 class="product-name">CalendÃ¡rio Passarada 2026</h3>
+              <p class="product-desc">CalendÃ¡rio de mesa temÃ¡tico com ilustraÃ§Ãµes aquareladas de pÃ¡ssaros brasileiros. Um mÃªs, uma espÃ©cie, uma frase inspiradora. Base de madeira inclusa.</p>
+              <div class="product-footer">
+                <span class="product-tag">âœ¦ EdiÃ§Ã£o 2026</span>
+                <a href="https://wa.me/55XXXXXXXX?text=OlÃ¡!%20Tenho%20interesse%20no%20CalendÃ¡rio%20Passarada%202026." class="btn btn-teal" target="_blank" rel="noopener noreferrer">Encomendar</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CAMISETAS PERSONALIZADAS
+    ============================================================ -->
+    <section class="shirts-section" id="camisetas" aria-label="Camisetas Personalizadas">
+      <div class="section-inner">
+        <div class="section-header center">
+          <span class="section-tag">ðŸ‘• Identidade na pele</span>
+          <h2 class="section-title light">Camisetas Personalizadas</h2>
+          <p class="section-subtitle" style="color:rgba(255,255,255,0.65); margin: 0.75rem auto 0;">
+            Arte impressa em camisetas de alta qualidade. Cada estampa conta uma histÃ³ria. Encomende com o design que vocÃª quiser ou escolha um dos nossos exclusivos.
+          </p>
+        </div>
+
+        <div class="shirts-grid">
+
+          <div class="shirt-card">
+            <img src="./imagens/Sarah_Jair.jpeg" alt="Camiseta Filhos da Tribo off-white com logo bordada usada em visita cultural" />
+            <div class="shirt-card-overlay">
+              <div class="shirt-card-info">
+                <p class="shirt-card-name">Camiseta Filhos da Tribo</p>
+                <p class="shirt-card-desc">Logo bordada, off-white â€” para orgulhar a tribo</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="shirt-card">
+            <img src="./imagens/Amanda_Raquel.jpeg" alt="Camiseta Sagrada FamÃ­lia â€” arte especial de maternidade e natividade em tom bege" />
+            <div class="shirt-card-overlay">
+              <div class="shirt-card-info">
+                <p class="shirt-card-name">Camiseta Sagrada FamÃ­lia</p>
+                <p class="shirt-card-desc">Arte especial maternidade e natividade</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="shirt-card">
+            <img src="./imagens/Flavia.jpeg" alt="Camiseta verde militar com arte de onÃ§a pintada em estilo tribal" />
+            <div class="shirt-card-overlay">
+              <div class="shirt-card-info">
+                <p class="shirt-card-name">Camiseta Garotona</p>
+                <p class="shirt-card-desc">Verde militar com onÃ§a tribal pintada</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="shirt-card">
+            <img src="./imagens/Joao_Alice.jpeg" alt="Camiseta Festa Junina azul com estampa Que Onda do Caramba e itens juninos" />
+            <div class="shirt-card-overlay">
+              <div class="shirt-card-info">
+                <p class="shirt-card-name">Camiseta Festa Junina</p>
+                <p class="shirt-card-desc">"Que Onda do Caramba" â€” clima de arraial!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="shirt-card">
+            <img src="./imagens/Darle_Jair.jpeg" alt="Camiseta preta com coruja colorida em pontilhismo artesanal" />
+            <div class="shirt-card-overlay">
+              <div class="shirt-card-info">
+                <p class="shirt-card-name">Camiseta Coruja</p>
+                <p class="shirt-card-desc">Coruja colorida em pontilhismo â€” arte viva</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="shirts-cta">
+          <p>Quer uma camiseta com o seu design? Fale com a gente e criamos algo exclusivo!</p>
+          <a href="https://wa.me/55XXXXXXXX?text=OlÃ¡!%20Quero%20encomendar%20uma%20camiseta%20personalizada." class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            Encomendar Camiseta
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         POR QUÃŠ FILHOS DA TRIBO
+    ============================================================ -->
+    <section class="section bg-white" aria-label="Por que escolher Filhos da Tribo">
+      <div class="section-inner">
+        <div class="section-header center">
+          <span class="section-tag">â¤ï¸ Nossos valores</span>
+          <h2 class="section-title">Por Que Filhos da Tribo?</h2>
+          <p class="section-subtitle">Mais do que produtos, entregamos emoÃ§Ã£o, cultura e propÃ³sito em cada peÃ§a.</p>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar">
+            <span class="pillar-icon">ðŸŽ¨</span>
+            <h3 class="pillar-title">Feito Ã  MÃ£o</h3>
+            <p class="pillar-text">Cada peÃ§a Ã© pintada artesanalmente, sem repetiÃ§Ã£o. Sua peÃ§a Ã© Ãºnica no mundo â€” como vocÃª. Do esboÃ§o Ã  finalizaÃ§Ã£o, tudo Ã© feito com dedicaÃ§Ã£o e cuidado.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">ðŸŒ¿</span>
+            <h3 class="pillar-title">RaÃ­zes Brasileiras</h3>
+            <p class="pillar-text">Inspirados na cultura, na natureza e na tradiÃ§Ã£o do Nordeste brasileiro. Cada cor, cada traÃ§o, cada motivo conta um pedaÃ§o da nossa histÃ³ria e identidade.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">â¤ï¸</span>
+            <h3 class="pillar-title">Com PropÃ³sito</h3>
+            <p class="pillar-text">Parte da renda apoia comunidades e projetos sociais em Salvador-BA. Quando vocÃª compra da Tribo, vocÃª tambÃ©m faz parte de algo maior e mais bonito.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOBRE NÃ“S
+    ============================================================ -->
+    <section class="section bg-cream" id="sobre" aria-label="Nossa histÃ³ria e missÃ£o">
+      <div class="section-inner">
+        <div class="about-grid">
+
+          <div class="about-text">
+            <span class="section-tag">ðŸŒ¿ Nossa histÃ³ria</span>
+            <h2 class="section-title">Nossa Tribo</h2>
+
+            <div class="about-quote">
+              <p>"Arte que vem da alma, pra enfeitar a sua vida."</p>
+            </div>
+
+            <p>A Filhos da Tribo nasceu nas ruas e quintais de Salvador, Bahia, de um desejo profundo de transformar objetos do cotidiano em arte que emociona. Somos uma marca que valoriza a arte popular brasileira, a identidade nordestina e a forÃ§a das mÃ£os que criam.</p>
+
+            <p>Nossa missÃ£o Ã© simples e poderosa: levar para a sua casa um pedaÃ§o da nossa alma baiana. Cada filtro de barro pintado, cada camiseta estampada, cada calendÃ¡rio ilustrado Ã© uma histÃ³ria que merece ser contada â€” e que vocÃª merece ter.</p>
+
+            <p>Tudo Ã© feito Ã  mÃ£o, com tintas atÃ³xicas e materiais de alta qualidade, selecionados com carinho. NÃ£o fabricamos em sÃ©rie: cada peÃ§a nasce Ãºnica, com imperfeiÃ§Ãµes que sÃ£o, na verdade, assinaturas de quem a criou com amor.</p>
+
+            <p>Acreditamos numa cadeia criativa que fortalece nossa comunidade. Por isso, parte da nossa renda Ã© destinada a apoiar artistas locais, projetos sociais e iniciativas culturais em Salvador. Ser Filhos da Tribo Ã© pertencer a algo maior â€” Ã© celebrar quem somos.</p>
+
+            <a href="#contato" class="btn btn-teal">Falar com a Gente</a>
+          </div>
+
+          <div class="about-visual">
+            <img
+              class="about-img-main"
+              src="./imagens/Muringa_Verde_2.jpeg"
+              alt="Muringa Verde com Margaridas â€” detalhe artesanal da pintura Ã  mÃ£o"
+            />
+            <div class="about-badge-float">
+              <strong>100%</strong>
+              <span>Artesanal</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GALERIA DE CLIENTES
+    ============================================================ -->
+    <section class="tribe-section" id="tribo" aria-label="Clientes da Filhos da Tribo">
+      <div class="section-inner">
+        <div class="section-header center">
+          <span class="section-tag">âœ¨ Nossa famÃ­lia</span>
+          <h2 class="section-title">Quem JÃ¡ Ã© da Tribo</h2>
+          <p class="section-subtitle">Clientes que sÃ£o mais do que compradores â€” sÃ£o parte da nossa histÃ³ria.</p>
+        </div>
+
+        <div class="tribe-grid">
+
+          <div class="tribe-card">
+            <img src="./imagens/Sarah_Jair.jpeg" alt="Cliente usando camiseta Filhos da Tribo off-white em visita cultural" />
+            <div class="tribe-overlay">
+              <div class="tribe-overlay-icon">ðŸ’›</div>
+              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
+            </div>
+          </div>
+
+          <div class="tribe-card">
+            <img src="./imagens/Darle_Jair.jpeg" alt="Cliente usando camiseta preta com coruja colorida em pontilhismo artesanal" />
+            <div class="tribe-overlay">
+              <div class="tribe-overlay-icon">ðŸ’›</div>
+              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
+            </div>
+          </div>
+
+          <div class="tribe-card">
+            <img src="./imagens/Amanda_Raquel.jpeg" alt="Cliente usando camiseta Sagrada FamÃ­lia em tons bege e arte de maternidade" />
+            <div class="tribe-overlay">
+              <div class="tribe-overlay-icon">ðŸ’›</div>
+              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
+            </div>
+          </div>
+
+          <div class="tribe-card">
+            <img src="./imagens/Flavia.jpeg" alt="Cliente usando camiseta verde militar com arte de onÃ§a pintada estilo tribal" />
+            <div class="tribe-overlay">
+              <div class="tribe-overlay-icon">ðŸ’›</div>
+              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
+            </div>
+          </div>
+
+          <div class="tribe-card">
+            <img src="./imagens/Joao_Alice.jpeg" alt="Clientes usando camiseta Festa Junina azul com estampa Que Onda do Caramba" />
+            <div class="tribe-overlay">
+              <div class="tribe-overlay-icon">ðŸ’›</div>
+              <p class="tribe-overlay-text">Cliente feliz<br/>da Tribo!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA FINAL
+    ============================================================ -->
+    <section class="cta-section" id="contato" aria-label="Entre em contato para encomendas">
+      <div class="cta-inner">
+        <span class="cta-tag">âœ¨ Vamos criar juntos</span>
+        <h2 class="cta-title">Quer um produto exclusivo para vocÃª?</h2>
+        <p class="cta-text">
+          Fazemos encomendas personalizadas! Entre em contato e vamos criar algo especial juntos.<br/>
+          Uma peÃ§a feita sÃ³ para vocÃª, com toda a alma da Tribo.
+        </p>
+        <div class="cta-btns">
+          <a
+            href="https://wa.me/55XXXXXXXX?text=OlÃ¡!%20Quero%20encomendar%20um%20produto%20personalizado%20da%20Filhos%20da%20Tribo."
+            class="btn btn-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ðŸ“± Falar no WhatsApp
+          </a>
+          <a
+            href="https://instagram.com/filhosdatribo"
+            class="btn btn-outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ðŸ“¸ Ver no Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img class="footer-logo" src="./imagens/Logo-Filhos-da-Tribo-Vetor.png" alt="Logo Filhos da Tribo" />
+          </div>
+          <span class="footer-tagline">"Arte que vem da alma, pra enfeitar a sua vida."</span>
+          <p>Uma marca nascida em Salvador, Bahia, que transforma objetos do cotidiano em arte que emociona â€” feita Ã  mÃ£o, com amor e identidade cultural brasileira.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>NavegaÃ§Ã£o</h4>
+          <ul>
+            <li><a href="#inicio">InÃ­cio</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#camisetas">Camisetas</a></li>
+            <li><a href="#sobre">Sobre NÃ³s</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4>Fale Conosco</h4>
+          <p>ðŸ“ Salvador, Bahia, Brasil</p>
+          <p>ðŸ“± <a href="https://wa.me/55XXXXXXXX" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+          <p>ðŸ“¸ <a href="https://instagram.com/filhosdatribo" target="_blank" rel="noopener noreferrer">@filhosdatribo</a></p>
+          <p>âœ‰ï¸ <a href="mailto:contato@filhosdatribo.com.br">contato@filhosdatribo.com.br</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>Â© 2026 Filhos da Tribo â€” Todos os direitos reservados.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/filhosdatribo" class="social-link" aria-label="Instagram Filhos da Tribo" target="_blank" rel="noopener noreferrer">ðŸ“¸</a>
+          <a href="https://wa.me/55XXXXXXXX" class="social-link" aria-label="WhatsApp Filhos da Tribo" target="_blank" rel="noopener noreferrer">ðŸ’¬</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script>
+    // ---- Hamburger menu ----
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menu');
+      });
+    });
+
+    // ---- Product image switcher ----
+    function switchImg(imgId, src, dotBtn) {
+      const img = document.getElementById(imgId);
+      if (!img) return;
+      img.src = src;
+      // update dots
+      const dots = dotBtn.parentElement.querySelectorAll('.img-dot');
+      dots.forEach(d => d.classList.remove('active'));
+      dotBtn.classList.add('active');
+    }
+
+    // ---- Smooth reveal on scroll (IntersectionObserver) ----
+    const revealTargets = document.querySelectorAll('.product-card, .pillar, .shirt-card, .tribe-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = '';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealTargets.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease, box-shadow 0.3s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
